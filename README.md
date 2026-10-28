@@ -46,13 +46,13 @@ The project is part of my Java backend development portfolio and is being develo
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/dobosbrigitta-ctrl/EnergyPulse.git
+   git clone https://github.com/dobosbrigitta-ctrl/EnergyCoffee.git
    ```
 
 2. Open the project directory:
 
    ```bash
-   cd EnergyPulse
+   cd EnergyCoffee
    ```
 
 3. Run the application using the Maven Wrapper.
@@ -76,24 +76,13 @@ The project is part of my Java backend development portfolio and is being develo
 ## Project Structure
 
 ```text
-EnergyPulse/
+EnergyCoffee/
 ├── .mvn/
 ├── src/
 │   ├── main/
-│   │   ├── java/com/energypulse/
-│   │   │   ├── EnergyPulseApplication.java
+│   │   ├── java/com/energycoffee/
+│   │   │   ├── EnergyCoffeeApplication.java
 │   │   │   └── HomeController.java
-│   │   ├── resources/
-│   │   │   ├── application.properties
-│   │   │   └── templates/
-│   │   │       └── dashboard.html
-│   │   └── ...
-│   └── test/
-├── .gitignore
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
-└── README.md
 ```
 
 ## Current Scope
