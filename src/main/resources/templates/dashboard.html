@@ -130,6 +130,11 @@
                 required
         >
         <button type="submit">Calculate</button>
+        <button type="submit"
+                th:formaction="@{/records}"
+                formmethod="post">
+            Save record
+        </button>
     </form>
 
     <section class="cards">
