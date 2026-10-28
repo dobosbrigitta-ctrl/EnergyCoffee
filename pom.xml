@@ -11,10 +11,10 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.energypulse</groupId>
-	<artifactId>energy-pulse</artifactId>
+	<groupId>com.energycoffee</groupId>
+	<artifactId>energy-coffee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>energy-pulse</name>
+	<name>energy-coffee</name>
 
 	<properties>
 		<java.version>21</java.version>

@@ -1,5 +1,5 @@
 
-package com.energypulse;
+package com.energycoffee;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
