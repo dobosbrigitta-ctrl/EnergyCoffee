@@ -1,8 +1,8 @@
-# EnergyPulse
+# EnergyCoffee
 
 **A Spring Boot energy analytics dashboard for monitoring energy consumption and estimated costs.**
 
-EnergyPulse is a web application built with Java and Spring Boot. It provides a simple dashboard where users can enter energy consumption values and view an estimated cost and a consumption status.
+EnergyCoffee is a web application built with Java and Spring Boot. It provides a simple dashboard where users can enter energy consumption values and view an estimated cost and a consumption status.
 
 The project is part of my Java backend development portfolio and is being developed incrementally to strengthen my skills in Spring Boot, server-side rendering, and backend application design.
 
