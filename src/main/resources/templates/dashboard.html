@@ -128,7 +128,18 @@
                 step="1"
                 th:value="${consumption}"
                 required
+
+
         >
+        <label for="siteId">Select site:</label>
+        <select id="siteId" name="siteId" required>
+            <option value="">-- Select a site --</option>
+            <option th:each="site : ${sites}"
+                    th:value="${site.id}"
+                    th:text="${site.name + ' - ' + site.city}">
+            </option>
+        </select>
+
         <button type="submit">Calculate</button>
         <button type="submit"
                 th:formaction="@{/records}"
