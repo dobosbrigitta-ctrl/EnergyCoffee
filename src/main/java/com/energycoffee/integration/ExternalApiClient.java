@@ -13,10 +13,12 @@ public class ExternalApiClient {
         this.webClient = webClient;
     }
 
-    public Mono<String> getExternalData() {
-        return webClient.get()
-                .uri("https://jsonplaceholder.typicode.com/posts/1")
+    public Mono<String> getExternalData(Long id) {
+        /*return webClient.get()
+                .uri("/posts/{id}", id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(String.class);*/
+        return Mono.just("Hello World");
     }
+
 }

@@ -1,9 +1,12 @@
+
 package com.energycoffee.controller;
 
 import com.energycoffee.integration.ExternalApiClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -16,8 +19,8 @@ public class ExternalApiController {
         this.externalApiClient = externalApiClient;
     }
 
-    @GetMapping("/posts/1")
-    public Mono<String> getExternalPost() {
-        return externalApiClient.getExternalData();
+    @GetMapping("/posts/{id}")
+    public Mono<String> getExternalPost(@PathVariable Long id) {
+        return externalApiClient.getExternalData(id);
     }
 }
