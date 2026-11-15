@@ -1,12 +1,6 @@
 # EnergyCoffee – Energy Consumption Monitoring and Cost Estimation
 
-A Java Spring Boot web application for monitoring energy consumption and estimating electricity costs through an interactive dashboard.
-
-## Overview
-
-EnergyCoffee allows users to record energy consumption, calculate estimated electricity costs, and monitor consumption levels based on configurable thresholds.
-
-The project focuses on backend development, data persistence, business logic, and web application development using Java and Spring technologies.
+My application is monitoring energy consumption and estimating electricity costs through an interactive dashboard, focuses on backend development, data persistence, business logic, and web application development using Java and Spring technologies.
 
 ## Features
 
@@ -17,23 +11,20 @@ The project focuses on backend development, data persistence, business logic, an
 - **Data Persistence** – Store and retrieve energy consumption records.
 - **External Data Integration Practice** – Explore communication with external services as part of backend development.
 
-## Technology Stack
+### Backend Architecture
 
-| Technology | Purpose |
-|---|---|
-| Java 21 | Backend programming |
-| Spring Boot | Application framework |
-| Spring MVC | Web request handling |
-| Spring Data JPA | Database access |
-| Hibernate | ORM |
-| PostgreSQL | Relational database |
-| Thymeleaf | Server-side HTML rendering |
-| Maven | Build and dependency management |
-| JUnit 5 | Automated testing |
-| Mockito | Unit testing and mocking |
-| Swagger / OpenAPI | API documentation during development |
+- Java 21
+- Spring Boot 3.4.0
+- Spring Data JPA & Hibernate, Security
+- REST API
 
-The project uses JUnit 5 and Mockito for automated testing.
+### Frontend Architecture
+
+- Thymeleaf
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+
 
 ## Project Goals
 
