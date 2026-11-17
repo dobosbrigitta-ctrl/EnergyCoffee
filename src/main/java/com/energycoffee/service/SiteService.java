@@ -1,6 +1,6 @@
-
 package com.energycoffee.service;
 
+import com.energycoffee.exception.ResourceNotFoundException;
 import com.energycoffee.model.Site;
 import com.energycoffee.repository.SiteRepository;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,16 @@ public class SiteService {
     public Site getSiteById(Long id) {
         return siteRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Site not found with ID: " + id));
+                        new ResourceNotFoundException("Site not found with ID: " + id));
+    }
+
+    public Site updateSite(Long id, Site updatedSite) {
+        Site existingSite = getSiteById(id);
+
+        existingSite.setName(updatedSite.getName());
+        existingSite.setCity(updatedSite.getCity());
+        existingSite.setAddress(updatedSite.getAddress());
+
+        return siteRepository.save(existingSite);
     }
 }

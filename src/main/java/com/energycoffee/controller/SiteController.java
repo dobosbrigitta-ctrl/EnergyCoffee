@@ -3,6 +3,7 @@ package com.energycoffee.controller;
 
 import com.energycoffee.model.Site;
 import com.energycoffee.service.SiteService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class SiteController {
     }
 
     @PostMapping
-    public Site createSite(@RequestBody Site site) {
+    public Site createSite(@Valid @RequestBody Site site) {
         return siteService.saveSite(site);
     }
 
@@ -30,5 +31,9 @@ public class SiteController {
     @GetMapping("/{id}")
     public Site getSiteById(@PathVariable Long id) {
         return siteService.getSiteById(id);
+    }
+    @PutMapping("/{id}")
+    public Site updateSite(@PathVariable Long id, @Valid @RequestBody Site site) {
+        return siteService.updateSite(id, site);
     }
 }

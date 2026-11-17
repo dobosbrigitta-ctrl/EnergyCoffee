@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Site {
@@ -14,12 +15,15 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Column(nullable = false, length = 100)
     private String city;
 
+    @Column(length = 255)
     private String address;
 
     public Site() {
