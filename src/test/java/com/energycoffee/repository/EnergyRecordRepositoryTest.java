@@ -26,6 +26,7 @@ class EnergyRecordRepositoryTest {
     void shouldSaveEnergyRecordWithSite() {
 
         Site site = new Site();
+        site.setExternalId("SITE-001");
         site.setName("Test Office");
         site.setCity("Budapest");
 

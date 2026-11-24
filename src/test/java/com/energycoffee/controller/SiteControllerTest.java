@@ -35,6 +35,7 @@ class SiteControllerTest {
     @Test
     void createSiteShouldReturnCreatedSite() throws Exception {
         Site site = new Site();
+        site.setExternalId("SITE-001");
         site.setName("Office");
         site.setCity("Budapest");
         site.setAddress("Main Street 10");
@@ -45,6 +46,7 @@ class SiteControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
+                                    "externalId": "SITE-001",
                                     "name": "Office",
                                     "city": "Budapest",
                                     "address": "Main Street 10"
@@ -61,6 +63,7 @@ class SiteControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
+                                    "externalId": "SITE-001",
                                     "name": "",
                                     "city": "Budapest",
                                     "address": "Main Street 10"
@@ -81,6 +84,7 @@ class SiteControllerTest {
     @Test
     void updateSiteShouldReturnUpdatedSite() throws Exception {
         Site updatedSite = new Site();
+        updatedSite.setExternalId("SITE-001");
         updatedSite.setName("Updated Office");
         updatedSite.setCity("Vienna");
         updatedSite.setAddress("New Street 20");
@@ -92,6 +96,7 @@ class SiteControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                             {
+                                "externalId": "SITE-001",
                                 "name": "Updated Office",
                                 "city": "Vienna",
                                 "address": "New Street 20"
@@ -111,6 +116,7 @@ class SiteControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                             {
+                                "externalId": "SITE-001",
                                 "name": "Updated Office",
                                 "city": "Vienna",
                                 "address": "New Street 20"
@@ -118,5 +124,21 @@ class SiteControllerTest {
                             """))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$").value("Site not found with ID: 999"));
+    }
+    @Test
+    void getSiteByIdShouldReturnSite() throws Exception {
+        Site site = new Site();
+        site.setExternalId("SITE-001");
+        site.setName("Office");
+        site.setCity("Budapest");
+        site.setAddress("Main Street 10");
+
+        when(siteService.getSiteById(1L)).thenReturn(site);
+
+        mockMvc.perform(get("/api/sites/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("Office"))
+                .andExpect(jsonPath("$.city").value("Budapest"))
+                .andExpect(jsonPath("$.address").value("Main Street 10"));
     }
 }

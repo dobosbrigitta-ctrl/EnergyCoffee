@@ -16,6 +16,10 @@ public class Site {
     private Long id;
 
     @NotBlank
+    @Column(nullable = false, unique = true, length = 50)
+    private String externalId;
+
+    @NotBlank
     @Column(nullable = false, length = 100)
     private String name;
 
@@ -33,6 +37,10 @@ public class Site {
         return id;
     }
 
+    public String getExternalId() {
+        return externalId;
+    }
+
     public String getName() {
         return name;
     }
@@ -43,6 +51,10 @@ public class Site {
 
     public String getAddress() {
         return address;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
     public void setName(String name) {

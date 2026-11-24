@@ -36,6 +36,7 @@ class EnergyCoffeeApplicationTests {
 	void shouldSaveEnergyRecord() {
 		Site site = new Site();
 		site.setName("Test Office");
+		site.setExternalId("TEST-OFFICE-002");
 		site.setCity("Budapest");
 
 		Site savedSite = siteRepository.save(site);

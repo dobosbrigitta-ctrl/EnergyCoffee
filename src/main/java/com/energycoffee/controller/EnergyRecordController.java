@@ -2,8 +2,11 @@ package com.energycoffee.controller;
 
 import com.energycoffee.model.EnergyRecord;
 import com.energycoffee.service.EnergyRecordService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import com.energycoffee.dto.EnergyRecordRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -22,8 +25,10 @@ public class EnergyRecordController {
         return energyRecordService.getAllRecords();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+
     @PostMapping
-    public EnergyRecord createRecord(@RequestBody EnergyRecordRequest request) {
+    public EnergyRecord createRecord(@Valid @RequestBody EnergyRecordRequest request) {
         return energyRecordService.saveConsumption(
                 request.getConsumption(),
                 request.getSiteId()
