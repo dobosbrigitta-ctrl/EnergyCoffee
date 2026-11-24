@@ -19,6 +19,7 @@ class SiteRepositoryTest {
     void shouldSaveSite() {
         Site site = new Site();
         site.setName("Test Office");
+        site.setExternalId("TEST-OFFICE-001");
         site.setCity("Budapest");
         site.setAddress("Main Street 10");
 
@@ -31,6 +32,7 @@ class SiteRepositoryTest {
     @Test
     void shouldFindSiteById() {
         Site site = new Site();
+        site.setExternalId("SITE-002");
         site.setName("Test Office");
         site.setCity("Budapest");
 
@@ -45,10 +47,12 @@ class SiteRepositoryTest {
     @Test
     void shouldFindAllSites() {
         Site firstSite = new Site();
+        firstSite.setExternalId("SITE-003");
         firstSite.setName("Office A");
         firstSite.setCity("Budapest");
 
         Site secondSite = new Site();
+        secondSite.setExternalId("SITE-004");
         secondSite.setName("Office B");
         secondSite.setCity("Vienna");
 
@@ -61,6 +65,7 @@ class SiteRepositoryTest {
     @Test
     void shouldDeleteSite() {
         Site site = new Site();
+        site.setExternalId("SITE-005");
         site.setName("Test Office");
         site.setCity("Budapest");
 
