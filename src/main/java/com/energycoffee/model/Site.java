@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Site {
@@ -52,6 +54,13 @@ public class Site {
     public String getAddress() {
         return address;
     }
+
+    public List<Meter> getMeters() {
+        return meters;
+    }
+
+    @OneToMany(mappedBy = "site")
+    private List<Meter> meters;
 
     public void setExternalId(String externalId) {
         this.externalId = externalId;
