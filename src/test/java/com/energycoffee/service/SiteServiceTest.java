@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import com.energycoffee.exception.DuplicateResourceException;
 
 import java.util.List;
 import java.util.Optional;
@@ -123,5 +124,21 @@ class SiteServiceTest {
                 .hasMessage("Site not found with ID: 99");
 
         verify(siteRepository).findById(99L);
+    }
+    @Test
+    void shouldThrowExceptionWhenExternalIdAlreadyExists() {
+        Site site = new Site();
+        site.setExternalId("SITE-001");
+        site.setName("Test Office");
+        site.setCity("Budapest");
+
+        when(siteRepository.existsByExternalId("SITE-001")).thenReturn(true);
+
+        assertThatThrownBy(() -> siteService.saveSite(site))
+                .isInstanceOf(DuplicateResourceException.class)
+                .hasMessage("Site already exists with external ID: SITE-001");
+
+        verify(siteRepository).existsByExternalId("SITE-001");
+        verify(siteRepository, never()).save(any(Site.class));
     }
 }

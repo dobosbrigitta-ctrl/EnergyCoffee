@@ -13,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.mockito.Mockito.verify;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -141,4 +143,11 @@ class SiteControllerTest {
                 .andExpect(jsonPath("$.city").value("Budapest"))
                 .andExpect(jsonPath("$.address").value("Main Street 10"));
     }
+
+    @Test
+    void deleteSiteShouldReturnOkWhenSiteExists() throws Exception {
+        mockMvc.perform(delete("/api/sites/1"))
+                .andExpect(status().isOk());
+    }
+
 }

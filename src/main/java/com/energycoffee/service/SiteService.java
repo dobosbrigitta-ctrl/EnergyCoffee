@@ -1,5 +1,6 @@
 package com.energycoffee.service;
 
+import com.energycoffee.exception.DuplicateResourceException;
 import com.energycoffee.exception.ResourceNotFoundException;
 import com.energycoffee.model.Site;
 import com.energycoffee.repository.SiteRepository;
@@ -17,6 +18,12 @@ public class SiteService {
     }
 
     public Site saveSite(Site site) {
+        if (siteRepository.existsByExternalId(site.getExternalId())) {
+            throw new DuplicateResourceException(
+                    "Site already exists with external ID: " + site.getExternalId()
+            );
+        }
+
         return siteRepository.save(site);
     }
 
@@ -38,5 +45,9 @@ public class SiteService {
         existingSite.setAddress(updatedSite.getAddress());
 
         return siteRepository.save(existingSite);
+    }
+    public void deleteSite(Long id) {
+        Site site = getSiteById(id);
+        siteRepository.delete(site);
     }
 }
